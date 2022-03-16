@@ -15,6 +15,8 @@ namespace Mouseless {
 
 		public static string Keybinding_LockOn_FullIdentifier => ModContent.GetInstance<CoreMod>().Name + ": " + Keybinding_LockOn;
 
+		internal static bool KeybindsRegistered;
+
 		public override void Load() {
 			if (!Main.dedServ) {
 				MouseUp = KeybindLoader.RegisterKeybind(this, "Mouse Move Up", Keys.Up);
@@ -28,6 +30,8 @@ namespace Mouseless {
 				MouseSensivityChange = KeybindLoader.RegisterKeybind(this, "Mouse Sensitivity", Keys.OemPeriod);
 
 				LockOn = KeybindLoader.RegisterKeybind(this, Keybinding_LockOn, Keys.Z);
+
+				KeybindsRegistered = true;
 			}
 
 			LockOnHelper.ForceUsability = true;
@@ -43,6 +47,8 @@ namespace Mouseless {
 			DirectDetourManager.Unload();
 
 			LockOnHelper.ForceUsability = false;
+
+			KeybindsRegistered = false;
 		}
 	}
 }

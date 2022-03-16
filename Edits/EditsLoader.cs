@@ -92,6 +92,9 @@ namespace Mouseless.Edits {
 
 		private static bool IsPressed(ModKeybind key) {
 			try {
+				if (!CoreMod.KeybindsRegistered)
+					return false;
+
 				var keys = key.GetAssignedKeys();
 
 				if (keys.Count == 0 || !Enum.TryParse<Keys>(keys[0], out var keyEnum))
@@ -105,6 +108,9 @@ namespace Mouseless.Edits {
 
 		private static bool IsToggledOn(ModKeybind key) {
 			try {
+				if (!CoreMod.KeybindsRegistered)
+					return false;
+
 				var keys = key.GetAssignedKeys();
 
 				if (keys.Count == 0 || !Enum.TryParse<Keys>(keys[0], out var keyEnum))
