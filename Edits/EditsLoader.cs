@@ -77,7 +77,7 @@ namespace Mouseless.Edits {
 				if (IsPressed(CoreMod.MouseDown))
 					offsetY += sensitvity;
 				
-				if (Main.instance.IsActive)
+				if (Main.instance.IsActive && (offsetX != 0 || offsetY != 0))
 					Mouse.SetPosition(state.X + offsetX, state.Y + offsetY);
 
 				return new MouseState(state.X + offsetX, state.Y + offsetY,
