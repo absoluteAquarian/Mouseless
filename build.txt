@@ -1,5 +1,6 @@
 displayName = Mouseless
 author = absoluteAquarian
-version = 1.0.1.2
+version = 1.0.2
 includeSource = true
 hideCode = false
+side = Client

@@ -59,7 +59,7 @@ namespace Mouseless.Edits {
 
 						UIModConfig_updateNeeded.SetValue(Interface_modConfig.GetValue(null), true);
 
-						SoundEngine.PlaySound(SoundID.Item, Style: 37, pitchOffset: config.SensitivityOption / 4f);
+						SoundEngine.PlaySound(SoundID.Item37 with { Pitch = config.SensitivityOption / 4f });
 					}
 				}
 
