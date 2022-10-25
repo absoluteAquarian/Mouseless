@@ -15,7 +15,7 @@ namespace Mouseless {
 		private static readonly ConditionalWeakTable<ModKeybind, string> names = new();
 
 #if !TML_2022_09
-		public static readonly MethodInfo ModKeybind_get_FullName = typeof(ModKeybind).GetProperty("FullName", BindingFlags.NonPublic | BindingFlags.Instance).GetGetMethod();
+		public static readonly MethodInfo ModKeybind_get_FullName = typeof(ModKeybind).GetProperty("FullName", BindingFlags.NonPublic | BindingFlags.Instance).GetGetMethod(nonPublic: true);
 #else
 		public static readonly FieldInfo ModKeybind_uniqueName = typeof(ModKeybind).GetField("uniqueName", BindingFlags.NonPublic | BindingFlags.Instance);
 #endif
