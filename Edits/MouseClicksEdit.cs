@@ -29,10 +29,10 @@ namespace Mouseless.Edits {
 
 			bool clickLeft = state.LeftButton == ButtonState.Pressed, clickRight = state.RightButton == ButtonState.Pressed;
 
-			if (!Main.blockInput && IsPressed(CoreMod.MouseClickLeft))
+			if (IsPressed(CoreMod.MouseClickLeft))
 				clickLeft = true;
 
-			if (!Main.blockInput && IsPressed(CoreMod.MouseClickRight))
+			if (IsPressed(CoreMod.MouseClickRight))
 				clickRight = true;
 
 			return new MouseState(state.X, state.Y, state.ScrollWheelValue,
@@ -52,10 +52,10 @@ namespace Mouseless.Edits {
 				if (!PlayerInput.CurrentProfile.InputModes.TryGetValue(InputMode.Keyboard, out var keyConfig) || !keyConfig.KeyStatus.TryGetValue(key.GetFullName(), out var keys))
 					return false;
 
-				if (keys.Count == 0)
+				if (keys.Count == 0 || !System.Enum.TryParse<Keys>(keys[0], out var keyEnum))
 					return false;
 
-				return key.Current || key.JustPressed;
+				return Main.keyState.IsKeyDown(keyEnum);
 			} catch {
 				return false;
 			}

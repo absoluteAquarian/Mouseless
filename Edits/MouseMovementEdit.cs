@@ -55,16 +55,16 @@ namespace Mouseless.Edits {
 
 				int sensitvity = (int)(16 * config.SensitivityScale);
 
-				if (!Main.blockInput && IsPressed(CoreMod.MouseLeft))
+				if (IsPressed(CoreMod.MouseLeft))
 					offsetX -= sensitvity;
 
-				if (!Main.blockInput && IsPressed(CoreMod.MouseRight))
+				if (IsPressed(CoreMod.MouseRight))
 					offsetX += sensitvity;
 
-				if (!Main.blockInput && IsPressed(CoreMod.MouseUp))
+				if (IsPressed(CoreMod.MouseUp))
 					offsetY -= sensitvity;
 
-				if (!Main.blockInput && IsPressed(CoreMod.MouseDown))
+				if (IsPressed(CoreMod.MouseDown))
 					offsetY += sensitvity;
 				
 				if (Main.instance.IsActive && (offsetX != 0 || offsetY != 0))
@@ -89,10 +89,10 @@ namespace Mouseless.Edits {
 				if (!PlayerInput.CurrentProfile.InputModes.TryGetValue(InputMode.Keyboard, out var keyConfig) || !keyConfig.KeyStatus.TryGetValue(key.GetFullName(), out var keys))
 					return false;
 
-				if (keys.Count == 0)
+				if (keys.Count == 0 || !Enum.TryParse<Keys>(keys[0], out var keyEnum))
 					return false;
 
-				return key.Current || key.JustPressed;
+				return Main.keyState.IsKeyDown(keyEnum);
 			} catch {
 				return false;
 			}
@@ -107,10 +107,10 @@ namespace Mouseless.Edits {
 				if (!PlayerInput.CurrentProfile.InputModes.TryGetValue(InputMode.Keyboard, out var keyConfig) || !keyConfig.KeyStatus.TryGetValue(key.GetFullName(), out var keys))
 					return false;
 
-				if (keys.Count == 0)
+				if (keys.Count == 0 || !Enum.TryParse<Keys>(keys[0], out var keyEnum))
 					return false;
 
-				return key.JustPressed;
+				return Main.keyState.IsKeyDown(keyEnum) && !Main.oldKeyState.IsKeyDown(keyEnum);
 			} catch {
 				return false;
 			}
