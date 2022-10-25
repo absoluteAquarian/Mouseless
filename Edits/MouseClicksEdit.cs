@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using MonoMod.RuntimeDetour.HookGen;
+using System;
 using System.Reflection;
 using Terraria;
 using Terraria.GameInput;
@@ -52,7 +53,7 @@ namespace Mouseless.Edits {
 				if (!PlayerInput.CurrentProfile.InputModes.TryGetValue(InputMode.Keyboard, out var keyConfig) || !keyConfig.KeyStatus.TryGetValue(key.GetFullName(), out var keys))
 					return false;
 
-				if (keys.Count == 0 || !System.Enum.TryParse<Keys>(keys[0], out var keyEnum))
+				if (keys.Count == 0 || !Enum.TryParse<Keys>(keys[0], out var keyEnum))
 					return false;
 
 				return Main.keyState.IsKeyDown(keyEnum);

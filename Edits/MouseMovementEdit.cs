@@ -36,7 +36,7 @@ namespace Mouseless.Edits {
 				
 				var config = ModContent.GetInstance<MouselessConfig>();
 
-				if (!Main.blockInput && IsToggledOn(CoreMod.MouseSensivityChange)) {
+				if (CoreMod.ShouldCheckKeybinds() && IsToggledOn(CoreMod.MouseSensivityChange)) {
 					int old = config.SensitivityOption;
 
 					if (Main.keyState.PressingShift())

@@ -37,5 +37,7 @@ namespace Mouseless {
 
 			KeybindsRegistered = false;
 		}
+
+		public static bool ShouldCheckKeybinds() => !Main.blockInput && !Main.drawingPlayerChat;
 	}
 }
