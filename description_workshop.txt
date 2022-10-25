@@ -1,0 +1,36 @@
+﻿For those who don't have a mouse or don't want to use a trackpad.
+
+This mod lets you control the mouse via keyboard inputs!
+
+Listed below are the current keybindings:
+[b]Mouse Up[/b]
+- moves the mouse upwards when pressed
+- default key: [b]Up Arrow[/b]
+[b]Mouse Left[/b]
+- moves the mouse leftwards when pressed
+- default key: [b]Left Arrow[/b]
+[b]Mouse Right[/b]
+- moves the mouse rightwards when pressed
+- default key: [b]Right Arrow[/b]
+[b]Mouse Down[/b]
+- moves the mouse downwards when pressed
+- default key: [b]Down Arrow[/b]
+[b]Mouse Left Click[/b]
+- performs a left click
+- fully compatible will all of vanilla Terraria's UI, but modded UIs might not recognize the click action
+- default key: [b]Page Up[/b]
+[b]Mouse Right Click[/b]
+- performs a right click
+- fully compatible will all of vanilla Terraria's UI, but modded UIs might not recognize the click action
+- default key: [b]Page Down[/b]
+[b]Lock-On[/b]
+- handles the [c/bb0000:Lock-On] feature that's normally locked behind using a controller
+- default key: [b]Z[/b]
+[b]Decrease Sensitivity[/b]
+- makes the mouse move larger distances per game tick
+- higher sound pitches = faster movement
+- default key: [b]OemPeriod[/b]
+[b]Increase Sensitivity[/b]
+- makes the mouse move smaller distances per game tick
+- lower sound pitches = slower movement
+- default key: [b]OemPeriod + Shift[/b]

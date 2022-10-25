@@ -32,6 +32,6 @@ namespace Mouseless {
 		}
 
 		[JsonIgnore]
-		internal float SensitivityScale{ get; private set; } = 1f;
+		internal float SensitivityScale { get; private set; } = 1f;
 	}
 }

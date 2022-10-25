@@ -1,0 +1,6 @@
+﻿[h1]v1.0.3[/h1]
+
+- Updated the codebase to the new keybinding API
+- Properly fixed some bugs which caused the Lock-On detection to fail
+- Properly prevented error spam from appearing in the client logs
+- Keybindings are now properly ignored while the player's input is blocked (e.g. when a text box is open)

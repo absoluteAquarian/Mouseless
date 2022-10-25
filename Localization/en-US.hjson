@@ -1,0 +1,14 @@
+﻿Mods: {
+	Mouseless: {
+		Keybind: {
+			MoveUp: Mouse Move Up
+			MoveDown: Mouse Move Down
+			MoveLeft: Mouse Move Left
+			MoveRight: Mouse Move Right
+			ClickLeft: Mouse Left Click
+			ClickRight: Mouse Right Click
+			Sensitivity: Mouse Sensitivity
+			LockOn: Lock On
+		}
+	}
+}
