@@ -17,11 +17,9 @@ Listed below are the current keybindings:
 - default key: [b]Down Arrow[/b]
 [b]Mouse Left Click[/b]
 - performs a left click
-- fully compatible will all of vanilla Terraria's UI, but modded UIs might not recognize the click action
 - default key: [b]Page Up[/b]
 [b]Mouse Right Click[/b]
 - performs a right click
-- fully compatible will all of vanilla Terraria's UI, but modded UIs might not recognize the click action
 - default key: [b]Page Down[/b]
 [b]Lock-On[/b]
 - handles the [c/bb0000:Lock-On] feature that's normally locked behind using a controller
