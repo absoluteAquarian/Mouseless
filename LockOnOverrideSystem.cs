@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace Mouseless {
 	internal class LockOnOverrideSystem : ModSystem {
 		public override void PostUpdateInput() {
-			if (!CoreMod.KeybindsRegistered)
+			if (!CoreMod.KeybindsRegistered || CoreMod.LockOn is null)
 				return;
 
 			// Safeguard: manually ensure that the dictionaries are properly initialized

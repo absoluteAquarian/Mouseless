@@ -82,7 +82,7 @@ namespace Mouseless.Edits {
 
 		private static bool IsPressed(ModKeybind key) {
 			try {
-				if (!CoreMod.KeybindsRegistered)
+				if (!CoreMod.KeybindsRegistered || key is null)
 					return false;
 
 				// Safeguard: manually ensure that the dictionaries are properly initialized
@@ -100,7 +100,7 @@ namespace Mouseless.Edits {
 
 		private static bool IsToggledOn(ModKeybind key) {
 			try {
-				if (!CoreMod.KeybindsRegistered)
+				if (!CoreMod.KeybindsRegistered || key is null)
 					return false;
 
 				// Safeguard: manually ensure that the dictionaries are properly initialized
