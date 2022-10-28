@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using Terraria.ModLoader;
 
@@ -14,19 +15,17 @@ namespace Mouseless {
 
 		private static readonly ConditionalWeakTable<ModKeybind, string> names = new();
 
-#if !TML_2022_09
-		public static readonly MethodInfo ModKeybind_get_FullName = typeof(ModKeybind).GetProperty("FullName", BindingFlags.NonPublic | BindingFlags.Instance).GetGetMethod(nonPublic: true);
-#else
+		// v2022.10+
+		public static readonly MethodInfo ModKeybind_get_FullName = typeof(ModKeybind).GetProperty("FullName", BindingFlags.NonPublic | BindingFlags.Instance)?.GetGetMethod(nonPublic: true);
+		// v2022.9
 		public static readonly FieldInfo ModKeybind_uniqueName = typeof(ModKeybind).GetField("uniqueName", BindingFlags.NonPublic | BindingFlags.Instance);
-#endif
 
 		public static string GetFullName(this ModKeybind key) {
 			if (!names.TryGetValue(key, out string fullName)) {
-#if !TML_2022_09
-				fullName = ModKeybind_get_FullName.Invoke(key, null) as string;
-#else
-				fullName = ModKeybind_uniqueName.GetValue(key) as string;
-#endif
+				if (BuildInfo.tMLVersion >= new Version(2022, 10))
+					fullName = ModKeybind_get_FullName.Invoke(key, null) as string;
+				else
+					fullName = ModKeybind_uniqueName.GetValue(key) as string;
 
 				names.Add(key, fullName);
 			}
